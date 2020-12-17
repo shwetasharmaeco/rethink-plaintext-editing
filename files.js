@@ -90,5 +90,25 @@ export default initialValue => {
     }
   );
 
-  return [guide, plain, water, fancy, javascript, json];
+  const py = new File(
+    [
+    `
+    def main():
+      print("hello world!")
+
+    if _name_ == "_main_":
+      main()
+
+    print("Guru99")
+    `
+    ],
+    '/code.py',
+    {
+      type: 'text/python',
+      lastModified: new Date('2011-07-29T16:01:35')
+    }
+  );
+
+
+  return [guide, plain, water, fancy, javascript, json, py];
 }
