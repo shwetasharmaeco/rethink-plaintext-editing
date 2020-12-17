@@ -5,6 +5,7 @@ class CodeEditor extends React.Component {
     super(props);
     this.state = {
       text: "",
+      file: ""
     }
     this.updateText = this.updateText.bind(this);
     this.updateFileText = this.updateFileText.bind(this);
@@ -13,8 +14,10 @@ class CodeEditor extends React.Component {
     this.setState({ text: e.target.value });
   }
   async updateFileText() {
-    const defaultTextEditor = await this.props.file.text();
-    this.setState({ text: defaultTextEditor });
+    if(this.state.file.name != this.props.file.name) {
+      const defaultTextEditor = await this.props.file.text();
+      this.setState({ text: defaultTextEditor, file: this.props.file });  
+    } 
   }
 
   render() {

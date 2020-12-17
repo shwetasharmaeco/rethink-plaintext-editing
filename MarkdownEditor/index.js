@@ -1,14 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import css from './style.css';
 let marked = require("marked");
 
 class MarkdownEditor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      markdown: ""
+      markdown: "",
+      file: ""
     }
     this.updateMarkdown = this.updateMarkdown.bind(this);
     this.updateFileText = this.updateFileText.bind(this);
@@ -16,9 +14,12 @@ class MarkdownEditor extends React.Component {
   updateMarkdown(e) {
     this.setState({ markdown: e.target.value });
   }
+
   async updateFileText() {
-    const defaultText = await this.props.file.text();
-    this.setState({ markdown: defaultText });
+    if(this.state.file.name != this.props.file.name) {
+      const defaultTextEditor = await this.props.file.text();
+      this.setState({ markdown: defaultTextEditor, file: this.props.file });  
+    } 
   }
 
   render() {
@@ -43,21 +44,5 @@ class MarkdownEditor extends React.Component {
   }
 }
 
-
-
-// function MarkdownEditor({ file, write }) {
-//   console.log(file, write);
-//   return (
-//     <div className={css.editor}>
-//       <h3>TODO</h3>
-//       <i>text/markdown</i>
-//     </div>
-//   );
-// }
-
-// MarkdownEditor.propTypes = {
-//   file: PropTypes.object,
-//   write: PropTypes.func
-// };
 
 export default MarkdownEditor;

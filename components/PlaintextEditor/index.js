@@ -1,15 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import css from './style.css';
-
-
 
 class PlaintextEditor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       text: "",
+      file: "",
     }
     this.updateText = this.updateText.bind(this);
     this.updateFileText = this.updateFileText.bind(this);
@@ -18,9 +14,12 @@ class PlaintextEditor extends React.Component {
     this.setState({ text: e.target.value });
   }
   async updateFileText() {
-    const defaultTextEditor = await this.props.file.text();
-    this.setState({ text: defaultTextEditor });
+    if(this.state.file.name != this.props.file.name) {
+      const defaultTextEditor = await this.props.file.text();
+      this.setState({ text: defaultTextEditor, file: this.props.file });  
+    } 
   }
+  
   render() {
     this.updateFileText()
     return (
@@ -37,22 +36,5 @@ class PlaintextEditor extends React.Component {
     )
   }
 }
-
-
-
-// function PlaintextEditor({ file, write }) {
-//   console.log(file, write);
-//   return (
-//     <div className={css.editor}>
-//       <h3>TODO</h3>
-//       <i>text/plain</i>
-//     </div>
-//   );
-// }
-
-// PlaintextEditor.propTypes = {
-//   file: PropTypes.object,
-//   write: PropTypes.func
-// };
 
 export default PlaintextEditor;
