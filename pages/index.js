@@ -9,7 +9,7 @@ import { listFiles } from '../files';
 // Used below, these need to be registered
 import MarkdownEditor from '../MarkdownEditor';
 import PlaintextEditor from '../components/PlaintextEditor';
-
+import CodeEditor from '../CodeEditor';
 import IconPlaintextSVG from '../public/icon-plaintext.svg';
 import IconMarkdownSVG from '../public/icon-markdown.svg';
 import IconJavaScriptSVG from '../public/icon-javascript.svg';
@@ -21,7 +21,9 @@ const TYPE_TO_ICON = {
   'text/plain': IconPlaintextSVG,
   'text/markdown': IconMarkdownSVG,
   'text/javascript': IconJavaScriptSVG,
-  'application/json': IconJSONSVG
+  'application/json': IconJSONSVG,
+  'text/python': IconJavaScriptSVG,
+
 };
 
 function FilesTable({ files, activeFile, setActiveFile }) {
@@ -99,8 +101,11 @@ Previewer.propTypes = {
 
 // Uncomment keys to register editors for media types
 const REGISTERED_EDITORS = {
-  // "text/plain": PlaintextEditor,
-  // "text/markdown": MarkdownEditor,
+   "text/python": CodeEditor,
+   "text/javascript": CodeEditor,
+   "application/json": CodeEditor,
+  "text/plain": PlaintextEditor,
+  "text/markdown": MarkdownEditor,
 };
 
 function PlaintextFilesChallenge() {
