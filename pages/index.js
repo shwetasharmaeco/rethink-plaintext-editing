@@ -10,6 +10,7 @@ import { listFiles } from '../files';
 import MarkdownEditor from '../MarkdownEditor';
 import PlaintextEditor from '../components/PlaintextEditor';
 import CodeEditor from '../CodeEditor';
+import PrefixSearch from '../PrefixSearch';
 import IconPlaintextSVG from '../public/icon-plaintext.svg';
 import IconMarkdownSVG from '../public/icon-markdown.svg';
 import IconJavaScriptSVG from '../public/icon-javascript.svg';
@@ -23,6 +24,7 @@ const TYPE_TO_ICON = {
   'text/javascript': IconJavaScriptSVG,
   'application/json': IconJSONSVG,
   'text/python': IconJavaScriptSVG,
+  'text/solution2': IconJavaScriptSVG,
 
 };
 
@@ -106,6 +108,7 @@ const REGISTERED_EDITORS = {
    "application/json": CodeEditor,
   "text/plain": PlaintextEditor,
   "text/markdown": MarkdownEditor,
+  "text/solution2": PrefixSearch,
 };
 
 function PlaintextFilesChallenge() {
