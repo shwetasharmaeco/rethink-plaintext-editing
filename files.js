@@ -109,6 +109,19 @@ export default initialValue => {
     }
   );
 
+  const solution2 = new File(
+    [
+      `
+      dummy text
+      `
+      ],
+      '/prefixSearch',
+      {
+        type: 'text/solution2',
+        lastModified: new Date('2011-07-29T16:01:35')
+      }
+  );
 
-  return [guide, plain, water, fancy, javascript, json, py];
+
+  return [guide, plain, water, fancy, javascript, json, py, solution2];
 }
