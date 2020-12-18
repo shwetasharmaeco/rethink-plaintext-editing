@@ -11,7 +11,9 @@
     "next": "^9.5.1",
     "react": "^16.13.1",
     "react-code-blocks": "0.0.8",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "shortid": "^2.2.16",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

@@ -122,6 +122,19 @@ export default initialValue => {
       }
   );
 
+  const solution3 = new File(
+    [
+      `
+      dummy text
+      `
+      ],
+      '/urlShortner',
+      {
+        type: 'text/solution3',
+        lastModified: new Date('2011-07-29T16:01:35')
+      }
+  );
 
-  return [guide, plain, water, fancy, javascript, json, py, solution2];
+
+  return [guide, plain, water, fancy, javascript, json, py, solution2, solution3];
 }
